@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLINISYS — Rapprochement bancaire</title>
+  <link rel="icon" type="image/png" href="logo-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="loginView" class="login-view">
+      <div class="login-brand-panel">
+        <div class="brand logo-light"><img class="logo-img" src="logo.png" alt="CLINISYS — Powered by Experts, Driven by Digital" /></div>
+        <div class="login-copy"></div>
+      </div>
+      <div class="login-form-panel">
+        <div class="login-tools"><button type="button" id="langBtn">Français</button><button type="button" id="helpBtn">Aide</button></div>
+        <form id="loginForm" class="login-card">
+          <h2 id="authTitle">Connexion</h2><p id="authSubtitle">Accédez à votre espace de travail</p>
+          <div id="authStep1">
+            <label>Identifiant <i>*</i><span class="input-wrap"><span data-ic="user"></span><input id="username" autocomplete="off" placeholder="Votre nom d'utilisateur" /></span></label>
+            <div id="credentialSuggestions" class="credential-suggestions"><b>admin</b><span>Administrateur</span></div>
+            <label>Mot de passe <i>*</i><span class="input-wrap"><span data-ic="lock"></span><input id="password" type="password" placeholder="Votre mot de passe" value="••••••••" /><button type="button" id="togglePassword" title="Afficher / masquer" data-ic="eye"></button></span></label>
+            <div class="login-options"><label class="check"><input type="checkbox" checked /> Rester connecté</label><a href="#" id="forgotLink">Mot de passe oublié ?</a></div>
+            <button class="primary login-submit" type="button" id="credentialsBtn">Continuer&nbsp; →</button>
+          </div>
+          <div id="authStep2" class="auth-step2 hidden">
+            <div class="step-indicator"><span class="done">1</span><i></i><span class="current">2</span></div>
+            <h3>Sélection de l’environnement</h3><p class="step-help">Choisissez la société et l’exercice avant d’entrer dans le module.</p>
+            <label>Société <i>*</i><span class="input-wrap"><span data-ic="building"></span><select id="company"><option value="">Sélectionner une société</option><option value="ibnsina" selected>CLINIQUE INTERNATIONALE IBN SINA TANGER</option><option value="clinique">THCC Clinique Interna Hannibal</option><option value="clinisyshq">CLINISYS ERP — Société principale</option></select></span></label>
+            <label>Exercice <i>*</i><span class="input-wrap"><span data-ic="calendar"></span><select id="fiscalYear"><option value="">Sélectionner un exercice</option><option selected>2026</option><option>2025</option><option>2024</option></select></span></label>
+            <button class="primary login-submit" type="submit">Entrer dans le module&nbsp; →</button>
+            <button type="button" id="backToCredentials" class="back-auth">← Modifier les identifiants</button>
+          </div>
+        </form>
+        <footer>Rapprochement bancaire - Build V 0.0.2 · © 2026 par clinisys-his.com</footer>
+      </div>
+    </section>
+
+    <section id="shellView" class="shell-view hidden">
+      <aside class="sidebar" id="sidebar">
+        <div class="side-logo"><img class="side-mini" src="logo-icon.png" alt="CLINISYS" /><img class="side-full" src="logo.png" alt="CLINISYS" /></div>
+        <nav id="sideNav"></nav>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <div class="top-title"><button id="hamburger" title="Réduire / étendre le menu" data-ic="menu"></button><b>Rapprochement bancaire</b><small id="companyLabel"></small></div>
+          <div class="global-search" id="globalSearch"><span data-ic="search"></span><span>Rechercher une fonction du module...</span><kbd>Ctrl K</kbd></div>
+          <div class="top-right"><b id="clock"></b><span class="top-info" id="exerciceLabel"></span><button id="profileBtn" class="profile"><strong>A</strong><span>admin<small>Connecté</small></span><i data-ic="chevron"></i></button></div>
+        </header>
+        <div id="tabs" class="tabs"></div>
+        <div id="mainContent" class="main-content"></div>
+      </div>
+
+      <div id="profileMenu" class="profile-menu hidden">
+        <h4>Taille du texte</h4>
+        <div class="text-size" id="textSize"><button data-size="12">12px</button><button data-size="13" class="selected">13px</button><button data-size="14">14px</button></div>
+        <label class="switch-row">Plein écran <input type="checkbox" id="fullscreenToggle" /></label>
+        <button class="profile-link" id="changeExerciceBtn">Changer d’exercice</button>
+        <button class="logout" id="logoutBtn">Se déconnecter</button>
+      </div>
+
+      <div id="searchModal" class="modal-backdrop hidden">
+        <div class="search-modal">
+          <button class="close-modal" aria-label="Fermer">×</button>
+          <h2>Rechercher une fonction...</h2>
+          <input id="searchInput" autocomplete="off" placeholder="Compte, injection, rapprochement, état..." />
+          <div id="searchResults" class="search-results"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
